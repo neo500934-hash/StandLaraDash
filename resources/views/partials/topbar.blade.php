@@ -3,7 +3,7 @@
     <div class="header-left">
         <a href="{{ route('dashboard') }}" class="header-logo">
             <img src="{{ asset('assets/img/logo.webp') }}" alt="LiteAdmin">
-            <span>LiteAdmin</span>
+            <span>Dashboard</span>
         </a>
     </div>
 
@@ -110,20 +110,20 @@
 
             <div class="header-action-wrap dropdown user-dropdown">
                 <button class="dropdown-toggle user-trigger" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="{{ asset('assets/img/profile-img.webp') }}" alt="User" class="user-avatar">
+                    <span class="user-avatar user-initials">{{ auth()->user()->initials() }}</span>
                     <div class="user-brief">
-                        <span class="user-name">John Doe</span>
-                        <span class="user-role">Product Admin</span>
+                        <span class="user-name">{{ auth()->user()->name }}</span>
+                        {{-- <span class="user-role">Product Admin</span> --}}
                     </div>
                     <i class="bi bi-chevron-down user-chevron"></i>
                 </button>
 
                 <div class="dropdown-menu dropdown-menu-end user-menu">
                     <div class="user-menu-head">
-                        <img src="{{ asset('assets/img/profile-img.webp') }}" alt="User" class="user-menu-avatar">
+                        <span class="user-menu-avatar user-initials">{{ auth()->user()->initials() }}</span>
                         <div>
-                            <div class="user-menu-name">John Doe</div>
-                            <div class="user-menu-email">john.doe@example.com</div>
+                            <div class="user-menu-name">{{ auth()->user()->name }}</div>
+                            <div class="user-menu-email">{{ auth()->user()->email }}</div>
                         </div>
                     </div>
                     <div class="user-menu-body">
@@ -139,7 +139,8 @@
                     <div class="user-menu-foot">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <button type="submit" class="user-menu-logout"><i class="bi bi-box-arrow-right"></i><span>Sign
+                            <button type="submit" class="user-menu-logout"><i
+                                    class="bi bi-box-arrow-right"></i><span>Sign
                                     Out</span></button>
                         </form>
                     </div>

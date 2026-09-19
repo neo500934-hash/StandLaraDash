@@ -8,7 +8,14 @@
 
         <ul class="nav-menu">
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">
+                <a class="nav-link {{ request()->routeIs('blank') ? 'active' : '' }}" href="{{ route('blank') }}">
+                    <span class="nav-icon"><i class="ph ph-squares-four"></i></span>
+                    <span class="nav-text">Blank</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}"
+                    href="{{ route('dashboard') }}">
                     <span class="nav-icon"><i class="ph ph-squares-four"></i></span>
                     <span class="nav-text">Dashboard</span>
                     <span class="nav-badge nav-badge-soft">Main</span>
@@ -22,10 +29,11 @@
     <div class="sidebar-footer">
         <div class="sidebar-footer-user">
             <a href="#" class="sidebar-footer-profile">
-                <img src="{{ asset('assets/img/profile-img.webp') }}" alt="User" class="sidebar-footer-avatar">
+                <span class="user-avatar user-initials">{{ auth()->user()->initials() }}</span>
+
                 <div class="sidebar-footer-info">
-                    <div class="sidebar-footer-name">John Doe</div>
-                    <div class="sidebar-footer-role">Product Admin</div>
+                    <div class="sidebar-footer-name">{{ auth()->user()->name }}</div>
+                    {{-- <div class="sidebar-footer-role">Product Admin</div> --}}
                 </div>
             </a>
             <div class="sidebar-footer-actions">

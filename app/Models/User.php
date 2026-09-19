@@ -47,4 +47,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Get the initials from the user's name.
+     */
+    public function initials(): string
+    {
+        return collect(explode(' ', $this->name))
+            ->map(fn (string $part): string => strtoupper(substr($part, 0, 1)))
+            ->join('');
+    }
 }
