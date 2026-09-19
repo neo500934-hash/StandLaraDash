@@ -56,6 +56,13 @@
 
                         <button type="submit" class="btn btn-primary w-100">Sign In</button>
 
+                        <div class="fauth-divider">
+                            <span>or</span>
+                        </div>
+
+                        <a href="{{ route('auth.google.redirect') }}" class="btn btn-outline-secondary w-100">
+                            <i class="bi bi-google me-2"></i>Sign in with Google
+                        </a>
 
                     </form>
                 </div>

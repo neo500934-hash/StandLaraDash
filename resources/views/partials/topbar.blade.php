@@ -137,8 +137,11 @@
                                 class="bi bi-credit-card"></i><span>Billing</span></a>
                     </div>
                     <div class="user-menu-foot">
-                        <a class="user-menu-logout" href="#"><i class="bi bi-box-arrow-right"></i><span>Sign
-                                Out</span></a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="user-menu-logout"><i class="bi bi-box-arrow-right"></i><span>Sign
+                                    Out</span></button>
+                        </form>
                     </div>
                 </div>
             </div>

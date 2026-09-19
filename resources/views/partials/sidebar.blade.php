@@ -32,9 +32,12 @@
                 <a href="#" class="sidebar-footer-action" title="Settings">
                     <i class="bi bi-gear"></i>
                 </a>
-                <a href="#" class="sidebar-footer-action sidebar-footer-logout" title="Logout">
-                    <i class="bi bi-box-arrow-right"></i>
-                </a>
+                <form method="POST" action="{{ route('logout') }}" style="display: contents">
+                    @csrf
+                    <button type="submit" class="sidebar-footer-action sidebar-footer-logout" title="Logout">
+                        <i class="bi bi-box-arrow-right"></i>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
