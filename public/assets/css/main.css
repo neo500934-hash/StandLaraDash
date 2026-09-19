@@ -1759,7 +1759,7 @@ button {
     height: 2.1rem;
     border-radius: 3px;
     border: none;
-    background: var(--surface-color);
+    /* background: var(--surface-color); */
     color: var(--muted-color);
     display: inline-flex;
     align-items: center;
@@ -2001,7 +2001,7 @@ button {
 /* User */
 .user-trigger {
     border: none;
-    background: var(--surface-color);
+    /* background: var(--surface-color); */
     border-radius: 3px;
     height: 2.1rem;
     padding: 0 0.45rem 0 0.25rem;
@@ -2029,6 +2029,7 @@ button {
 
 .user-brief {
     display: none;
+    text-align: left;
     flex-direction: column;
     min-width: 0;
 }

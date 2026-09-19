@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\WebsiteSettingController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/language/{locale}', [LocaleController::class, 'switch'])->name('language.switch');
@@ -13,6 +14,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/blank', function () {
         return view('blank');
     })->name('blank');
+    Route::get('/websettings', [WebsiteSettingController::class, 'edit'])->name('websettings');
+    Route::put('/websettings', [WebsiteSettingController::class, 'update'])->name('websettings.update');
 });
 
 Route::get('/login', function () {

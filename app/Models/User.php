@@ -23,6 +23,7 @@ class User extends Authenticatable
         'email',
         'password',
         'google_id',
+        'rank',
     ];
 
     /**
@@ -56,5 +57,13 @@ class User extends Authenticatable
         return collect(explode(' ', $this->name))
             ->map(fn (string $part): string => strtoupper(substr($part, 0, 1)))
             ->join('');
+    }
+
+    /**
+     * Get the name of the user's rank.
+     */
+    public function rankName(): ?string
+    {
+        return Rank::where('rank_id', $this->rank)->value('name');
     }
 }

@@ -33,7 +33,7 @@
 
                 <div class="sidebar-footer-info">
                     <div class="sidebar-footer-name">{{ auth()->user()->name }}</div>
-                    {{-- <div class="sidebar-footer-role">Product Admin</div> --}}
+                    <div class="sidebar-footer-role">{{ auth()->user()->rankName() }}</div>
                 </div>
             </a>
             <div class="sidebar-footer-actions">

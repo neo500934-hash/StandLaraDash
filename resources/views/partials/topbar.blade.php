@@ -103,13 +103,15 @@
                 </div>
             </div> --}}
 
-            <button class="header-action theme-toggle" title="{{ __('Toggle Theme') }}" aria-label="{{ __('Toggle Theme') }}">
+            <button class="header-action theme-toggle" title="{{ __('Toggle Theme') }}"
+                aria-label="{{ __('Toggle Theme') }}">
                 <i class="ph ph-moon-stars theme-icon-dark"></i>
                 <i class="ph ph-sun theme-icon-light"></i>
             </button>
 
             <a href="{{ route('language.switch', app()->getLocale() === 'en' ? 'fr' : 'en') }}"
-                class="header-action lang-toggle" title="{{ __('Change Language') }}" aria-label="{{ __('Change Language') }}">
+                class="header-action lang-toggle" title="{{ __('Change Language') }}"
+                aria-label="{{ __('Change Language') }}">
                 <span class="lang-current">{{ strtoupper(app()->getLocale()) }}</span>
             </a>
 
@@ -118,7 +120,7 @@
                     <span class="user-avatar user-initials">{{ auth()->user()->initials() }}</span>
                     <div class="user-brief">
                         <span class="user-name">{{ auth()->user()->name }}</span>
-                        {{-- <span class="user-role">Product Admin</span> --}}
+                        <span class="user-role">{{ auth()->user()->rankName() }}</span>
                     </div>
                     <i class="bi bi-chevron-down user-chevron"></i>
                 </button>
@@ -132,10 +134,16 @@
                         </div>
                     </div>
                     <div class="user-menu-body">
-                        <a class="user-menu-item" href="#"><i class="bi bi-person"></i><span>{{ __('My Profile') }}</span></a>
+                        <a class="user-menu-item" href="#"><i
+                                class="bi bi-person"></i><span>{{ __('My Profile') }}</span></a>
                         <a class="user-menu-item" href="#"><i
                                 class="bi bi-sliders"></i><span>{{ __('Preferences') }}</span></a>
-                        <a class="user-menu-item" href="#"><i class="bi bi-activity"></i><span>{{ __('Activity Log') }}</span></a>
+                        @if (auth()->user()->rank == 1)
+                            <a class="user-menu-item" href="{{ route('websettings') }}"><i
+                                    class="bi bi-sliders"></i><span>{{ __('Website Settings') }}</span></a>
+                        @endif
+                        <a class="user-menu-item" href="#"><i
+                                class="bi bi-activity"></i><span>{{ __('Activity Log') }}</span></a>
                         <a class="user-menu-item" href="#"><i
                                 class="bi bi-credit-card"></i><span>{{ __('Billing') }}</span></a>
                     </div>
@@ -153,7 +161,8 @@
         <div class="header-actions-mobile">
 
 
-            <button class="header-action mobile-menu-toggle" title="{{ __('More') }}" aria-label="{{ __('More') }}">
+            <button class="header-action mobile-menu-toggle" title="{{ __('More') }}"
+                aria-label="{{ __('More') }}">
                 <i class="bi bi-three-dots"></i>
             </button>
         </div>
