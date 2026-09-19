@@ -1,6 +1,6 @@
 @extends('layouts.guest')
 
-@section('title', 'Login')
+@section('title', __('Login'))
 
 @section('content')
     <div class="fauth fauth-centered">
@@ -9,8 +9,8 @@
 
 
                 <div class="fauth-stage">
-                    <span class="fauth-stage-text">Secure sign in to your workspace</span>
-                    <span class="fauth-stage-chip">Login</span>
+                    <span class="fauth-stage-text">{{ __('Secure sign in to your workspace') }}</span>
+                    <span class="fauth-stage-chip">{{ __('Login') }}</span>
                 </div>
 
                 <div class="fauth-card">
@@ -20,7 +20,7 @@
                         @csrf
 
                         <div class="fauth-field">
-                            <label for="email" class="form-label">Email address</label>
+                            <label for="email" class="form-label">{{ __('Email address') }}</label>
                             <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
                                 name="email" value="{{ old('email') }}" placeholder="name@example.com" required
                                 autofocus>
@@ -31,12 +31,12 @@
 
                         <div class="fauth-field">
                             <div class="fauth-row-between">
-                                <label for="password" class="form-label">Password</label>
-                                <a href="#" class="fauth-link">Forgot password?</a>
+                                <label for="password" class="form-label">{{ __('Password') }}</label>
+                                <a href="#" class="fauth-link">{{ __('Forgot password?') }}</a>
                             </div>
                             <div class="input-group">
                                 <input type="password" class="form-control @error('password') is-invalid @enderror"
-                                    id="password" name="password" placeholder="Enter your password" required>
+                                    id="password" name="password" placeholder="{{ __('Enter your password') }}" required>
                                 <button class="btn btn-outline-secondary" type="button" data-toggle-password>
                                     <i class="bi bi-eye"></i>
                                 </button>
@@ -49,19 +49,19 @@
                         <div class="fauth-row-between mb-2">
                             <div class="form-check mb-0">
                                 <input class="form-check-input" type="checkbox" id="remember" name="remember">
-                                <label class="form-check-label" for="remember">Remember me</label>
+                                <label class="form-check-label" for="remember">{{ __('Remember me') }}</label>
                             </div>
-                            <a href="#" class="fauth-link">Use lock screen</a>
+                            <a href="#" class="fauth-link">{{ __('Use lock screen') }}</a>
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100">Sign In</button>
+                        <button type="submit" class="btn btn-primary w-100">{{ __('Sign In') }}</button>
 
                         <div class="fauth-divider">
-                            <span>or</span>
+                            <span>{{ __('or') }}</span>
                         </div>
 
                         <a href="{{ route('auth.google.redirect') }}" class="btn btn-outline-secondary w-100">
-                            <i class="bi bi-google me-2"></i>Sign in with Google
+                            <i class="bi bi-google me-2"></i>{{ __('Sign in with Google') }}
                         </a>
 
                     </form>

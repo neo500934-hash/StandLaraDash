@@ -1803,6 +1803,16 @@ button {
     font-size: 1.4rem;
 }
 
+.lang-toggle {
+    text-decoration: none;
+}
+
+.lang-current {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
 [data-theme=dark] .theme-toggle .theme-icon-dark {
     display: none;
 }

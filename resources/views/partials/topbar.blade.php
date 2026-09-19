@@ -7,7 +7,7 @@
         </a>
     </div>
 
-    <button class="sidebar-toggle" title="Toggle Sidebar" aria-label="Toggle Sidebar">
+    <button class="sidebar-toggle" title="{{ __('Toggle Sidebar') }}" aria-label="{{ __('Toggle Sidebar') }}">
         <i class="bi bi-list"></i>
     </button>
 
@@ -103,10 +103,15 @@
                 </div>
             </div> --}}
 
-            <button class="header-action theme-toggle" title="Toggle Theme" aria-label="Toggle Theme">
+            <button class="header-action theme-toggle" title="{{ __('Toggle Theme') }}" aria-label="{{ __('Toggle Theme') }}">
                 <i class="ph ph-moon-stars theme-icon-dark"></i>
                 <i class="ph ph-sun theme-icon-light"></i>
             </button>
+
+            <a href="{{ route('language.switch', app()->getLocale() === 'en' ? 'fr' : 'en') }}"
+                class="header-action lang-toggle" title="{{ __('Change Language') }}" aria-label="{{ __('Change Language') }}">
+                <span class="lang-current">{{ strtoupper(app()->getLocale()) }}</span>
+            </a>
 
             <div class="header-action-wrap dropdown user-dropdown">
                 <button class="dropdown-toggle user-trigger" data-bs-toggle="dropdown" aria-expanded="false">
@@ -127,21 +132,18 @@
                         </div>
                     </div>
                     <div class="user-menu-body">
-                        <a class="user-menu-item" href="#"><i class="bi bi-person"></i><span>My
-                                Profile</span></a>
+                        <a class="user-menu-item" href="#"><i class="bi bi-person"></i><span>{{ __('My Profile') }}</span></a>
                         <a class="user-menu-item" href="#"><i
-                                class="bi bi-sliders"></i><span>Preferences</span></a>
-                        <a class="user-menu-item" href="#"><i class="bi bi-activity"></i><span>Activity
-                                Log</span></a>
+                                class="bi bi-sliders"></i><span>{{ __('Preferences') }}</span></a>
+                        <a class="user-menu-item" href="#"><i class="bi bi-activity"></i><span>{{ __('Activity Log') }}</span></a>
                         <a class="user-menu-item" href="#"><i
-                                class="bi bi-credit-card"></i><span>Billing</span></a>
+                                class="bi bi-credit-card"></i><span>{{ __('Billing') }}</span></a>
                     </div>
                     <div class="user-menu-foot">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button type="submit" class="user-menu-logout"><i
-                                    class="bi bi-box-arrow-right"></i><span>Sign
-                                    Out</span></button>
+                                    class="bi bi-box-arrow-right"></i><span>{{ __('Sign Out') }}</span></button>
                         </form>
                     </div>
                 </div>
@@ -151,7 +153,7 @@
         <div class="header-actions-mobile">
 
 
-            <button class="header-action mobile-menu-toggle" title="More" aria-label="More">
+            <button class="header-action mobile-menu-toggle" title="{{ __('More') }}" aria-label="{{ __('More') }}">
                 <i class="bi bi-three-dots"></i>
             </button>
         </div>

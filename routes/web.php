@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\Auth\GoogleAuthController;
+use App\Http\Controllers\LocaleController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/language/{locale}', [LocaleController::class, 'switch'])->name('language.switch');
 
 Route::middleware('auth')->group(function () {
     Route::get('/', function () {
