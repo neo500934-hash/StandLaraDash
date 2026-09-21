@@ -61,7 +61,6 @@
   <script src="{{ asset('assets/vendors/php-email-form/validate.js') }}"></script>
 
   <!-- Template Main JS Files -->
-  <script src="{{ asset('assets/js/theme.js') }}"></script>
   <script src="{{ asset('assets/js/main.js') }}"></script>
 
   <!-- App Sidebar Toggle (for app pages with sidebars) -->

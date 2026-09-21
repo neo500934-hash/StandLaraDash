@@ -8,9 +8,8 @@
             <div class="fauth-main-inner">
 
 
-                <div class="fauth-stage">
-                    <span class="fauth-stage-text">{{ __('Secure sign in to your workspace') }}</span>
-                    <span class="fauth-stage-chip">{{ __('Login') }}</span>
+                <div class="fauth-logo-center">
+                    <img src="{{ asset('assets/img/logo.png') }}" alt="{{ __('Logo') }}" class="fauth-logo-img">
                 </div>
 
                 <div class="fauth-card">
@@ -51,18 +50,17 @@
                                 <input class="form-check-input" type="checkbox" id="remember" name="remember">
                                 <label class="form-check-label" for="remember">{{ __('Remember me') }}</label>
                             </div>
-                            <a href="#" class="fauth-link">{{ __('Use lock screen') }}</a>
                         </div>
 
                         <button type="submit" class="btn btn-primary w-100">{{ __('Sign In') }}</button>
 
-                        <div class="fauth-divider">
+                        {{-- <div class="fauth-divider">
                             <span>{{ __('or') }}</span>
                         </div>
 
                         <a href="{{ route('auth.google.redirect') }}" class="btn btn-outline-secondary w-100">
                             <i class="bi bi-google me-2"></i>{{ __('Sign in with Google') }}
-                        </a>
+                        </a> --}}
 
                     </form>
                 </div>

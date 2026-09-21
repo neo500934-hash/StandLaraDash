@@ -13,6 +13,13 @@
                     <span class="nav-text">{{ __('Blank') }}</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('brands.*') ? 'active' : '' }}"
+                    href="{{ route('brands.index') }}">
+                    <span class="nav-icon"><i class="ph ph-tag"></i></span>
+                    <span class="nav-text">{{ __('Brands') }}</span>
+                </a>
+            </li>
             {{-- <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}"
                     href="{{ route('dashboard') }}">

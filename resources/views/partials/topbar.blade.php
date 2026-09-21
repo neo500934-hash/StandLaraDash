@@ -3,7 +3,7 @@
     <div class="header-left">
         <a href="{{ route('dashboard') }}" class="header-logo">
             <img src="{{ asset('assets/img/logo.webp') }}" alt="LiteAdmin">
-            <span>Dashboard</span>
+            <span>VentePrivé</span>
         </a>
     </div>
 
