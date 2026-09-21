@@ -28,15 +28,6 @@
                                 <span class="invalid-feedback" role="alert">{{ $message }}</span>
                             @enderror
                         </div>
-
-                        <div class="col-md">
-                            <label for="type" class="form-label">{{ __('Type') }}</label>
-                            <input type="text" class="form-control @error('type') is-invalid @enderror" id="type"
-                                name="type" value="{{ old('type') }}">
-                            @error('type')
-                                <span class="invalid-feedback" role="alert">{{ $message }}</span>
-                            @enderror
-                        </div>
                     </div>
 
                     <div class="mt-4">

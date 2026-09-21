@@ -32,10 +32,9 @@ class BrandController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'type' => ['nullable', 'string', 'max:255'],
         ]);
 
-        Brand::create($validated);
+        Brand::create([...$validated, 'user_id' => auth()->id()]);
 
         return redirect()->route('brands.index')->with('status', __('Brand created.'));
     }
@@ -63,7 +62,6 @@ class BrandController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'type' => ['nullable', 'string', 'max:255'],
         ]);
 
         $brand->update($validated);
