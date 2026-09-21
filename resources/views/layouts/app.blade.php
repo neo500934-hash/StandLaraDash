@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Dashboard') - LiteAdmin</title>
+    <title>@yield('title', 'Dashboard') - Vente Privé</title>
     <meta name="robots" content="noindex, nofollow">
     <meta name="description" content="LiteAdmin - Bootstrap Admin Template">
     <meta name="keywords" content="admin, dashboard, bootstrap">
@@ -27,6 +27,7 @@
     <link href="{{ asset('assets/vendors/phosphor-icons/phosphor-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendors/lucide-icons/lucide.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendors/simple-datatables/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendors/datatables/datatables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendors/quill/quill.snow.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendors/quill/quill.bubble.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendors/choices.js/choices.min.css') }}" rel="stylesheet">
@@ -65,6 +66,8 @@
     <script src="{{ asset('assets/vendors/chart.js/chart.umd.js') }}"></script>
     <script src="{{ asset('assets/vendors/echarts/echarts.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/simple-datatables/simple-datatables.js') }}"></script>
+    <script src="{{ asset('assets/vendors/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/quill/quill.js') }}"></script>
     <script src="{{ asset('assets/vendors/tinymce/tinymce.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/choices.js/choices.min.js') }}"></script>

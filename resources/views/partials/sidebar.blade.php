@@ -20,6 +20,20 @@
                     <span class="nav-text">{{ __('Brands') }}</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}"
+                    href="{{ route('products.index') }}">
+                    <span class="nav-icon"><i class="ph ph-package"></i></span>
+                    <span class="nav-text">{{ __('Products') }}</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}"
+                    href="{{ route('categories.index') }}">
+                    <span class="nav-icon"><i class="ph ph-folders"></i></span>
+                    <span class="nav-text">{{ __('Categories') }}</span>
+                </a>
+            </li>
             {{-- <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}"
                     href="{{ route('dashboard') }}">

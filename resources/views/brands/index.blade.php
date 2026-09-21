@@ -25,8 +25,8 @@
                 @endif
 
                 <div class="table-responsive">
-                    <table class="table table-hover align-middle" id="brands-table">
-                        <thead class="table-light">
+                    <table class="table table-hover align-middle" id="brands-table" style="width: 100%;">
+                        <thead>
                             <tr>
                                 <th>{{ __('Name') }}</th>
                                 <th class="d-none d-md-table-cell">{{ __('Added By') }}</th>
@@ -34,56 +34,9 @@
                                 <th class="text-end">{{ __('Actions') }}</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            @forelse ($brands as $brand)
-                                <tr>
-                                    <td>
-                                        <span class="fw-500">{{ $brand->name }}</span>
-                                    </td>
-                                    <td class="d-none d-md-table-cell">{{ $brand->user->name }}</td>
-                                    <td class="d-none d-md-table-cell">
-                                        <small class="text-muted">{{ $brand->created_at->format('M d, Y \a\t H:i') }}</small>
-                                    </td>
-                                    <td class="text-end">
-                                        <div class="btn-group btn-group-sm" role="group">
-                                            <a href="{{ route('brands.edit', $brand) }}" class="btn btn-outline-primary"
-                                                title="{{ __('Edit') }}">
-                                                <i class="bi bi-pencil"></i>
-                                            </a>
-                                            <form action="{{ route('brands.destroy', $brand) }}" method="POST"
-                                                class="d-inline"
-                                                onsubmit="return confirm('{{ __('Are you sure you want to delete this brand?') }}');">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-outline-danger"
-                                                    title="{{ __('Delete') }}">
-                                                    <i class="bi bi-trash"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td colspan="2" class="d-md-none text-center text-muted py-5">
-                                        <i class="bi bi-inbox" style="font-size: 2rem; opacity: 0.5;"></i>
-                                        <p class="mt-3 mb-0">{{ __('No brands yet. Create your first brand to get started.') }}</p>
-                                    </td>
-                                    <td colspan="4" class="d-none d-md-table-cell text-center text-muted py-5">
-                                        <i class="bi bi-inbox" style="font-size: 2rem; opacity: 0.5;"></i>
-                                        <p class="mt-3 mb-0">{{ __('No brands yet. Create your first brand to get started.') }}</p>
-                                    </td>
-                                </tr>
-                            @endforelse
-                        </tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
-
-                @if ($brands->hasPages())
-                    <nav class="mt-4">
-                        {{ $brands->links() }}
-                    </nav>
-                @endif
             </div>
         </section>
     </div>
@@ -91,16 +44,29 @@
     @push('scripts')
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                const table = document.getElementById('brands-table');
-                if (table) {
-                    new DataTable(table, {
-                        perPage: 25,
-                        layout: {
-                            top: '',
-                            bottom: '{pager}',
-                        },
-                    });
-                }
+                $('#brands-table').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: '{{ route('brands.data') }}',
+                    order: [
+                        [2, 'desc']
+                    ],
+                    columns: [
+                        {data: 'name', name: 'name'},
+                        {data: 'added_by', name: 'user.name', className: 'd-none d-md-table-cell'},
+                        {data: 'created_at', name: 'created_at', className: 'd-none d-md-table-cell'},
+                        {data: 'actions', name: 'actions', orderable: false, searchable: false, className: 'text-end'},
+                    ],
+                    language: {
+                        search: '',
+                        searchPlaceholder: '{{ __('Search brands...') }}',
+                        emptyTable: '{{ __('No brands yet. Create your first brand to get started.') }}',
+                        zeroRecords: '{{ __('No brands found') }}',
+                        info: '{{ __('Showing _START_ to _END_ of _TOTAL_ brands') }}',
+                        infoEmpty: '{{ __('No brands to show') }}',
+                        infoFiltered: '({{ __('filtered from') }} _MAX_ {{ __('total') }})',
+                    },
+                });
             });
         </script>
     @endpush

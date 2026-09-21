@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class BrandController extends Controller
 {
@@ -12,9 +13,22 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brands = Brand::latest()->paginate(15);
+        return view('brands.index');
+    }
 
-        return view('brands.index', compact('brands'));
+    /**
+     * Provide the server-side DataTables payload for the listing.
+     */
+    public function data()
+    {
+        $query = Brand::with('user')->select('brands.*');
+
+        return DataTables::eloquent($query)
+            ->addColumn('added_by', fn (Brand $brand) => $brand->user->name)
+            ->editColumn('created_at', fn (Brand $brand) => $brand->created_at->format('M d, Y \a\t H:i'))
+            ->addColumn('actions', fn (Brand $brand) => view('brands._actions', ['brand' => $brand])->render())
+            ->rawColumns(['actions'])
+            ->toJson();
     }
 
     /**
